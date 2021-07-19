@@ -1,0 +1,8 @@
+[submodule "cfs_checksum_patched/cFS"]
+	path = cfs_checksum_patched/cFS
+	url = https://github.com/nmullane/cFS.git
+	branch = amp-checksum-patched
+[submodule "cfs_checksum_vuln/cFS"]
+	path = cfs_checksum_vuln/cFS
+	url = https://github.com/nmullane/cFS.git
+	branch = amp-checksum-vuln
