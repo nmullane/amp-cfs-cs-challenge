@@ -6,3 +6,6 @@
 	path = cfs_checksum_vuln/cFS
 	url = https://github.com/nmullane/cFS.git
 	branch = amp-checksum-vuln
+[submodule "cosmos-demo"]
+	path = cosmos-demo
+	url = https://github.com/nmullane/cosmos-demo.git
