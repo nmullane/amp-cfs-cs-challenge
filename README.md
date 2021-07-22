@@ -19,8 +19,12 @@ There is no hardware necessary for this challenge. Make sure you have docker com
 Run `docker-compose -f docker-compose-vuln.yaml up` to launch the cFS binary and the COSMOS ground system.
 
 When the COSMOS launcher opens, press the COSMOS Demo icon in the top row. This will connect COSMOS with cFS and open display screens to view the status of the checksum app and cFS as a whole.
+
 ![image](https://user-images.githubusercontent.com/4342051/126688827-da41b85b-5ffd-444f-b2fc-7c6d1a345938.png)
 
 To verify the behavior of the checksum app, look at the cfe Core Checksum Error Count. This will increment every minute if the checksum app is vulnerable.
+
 ![image](https://user-images.githubusercontent.com/4342051/126689214-f71d6884-d6be-4776-a34a-fb93eddfd1ef.png)
+
+# cFS Additional Information
 
