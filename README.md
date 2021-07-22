@@ -14,7 +14,7 @@ We have provided two prebuilt binary files titled `core-cpu1` for a cFS build wi
 The challenge is configured to run within Docker using an Ubuntu 20.04 container to run the cFS binary (16.04 and 18.04 have also been verified to work) and a second container to run the COSMOS ground system.
 
 ## Setup
-There is no hardware necessary for this challenge. Make sure you have docker compose installed on your computer.
+There is no hardware necessary for this challenge and docker compose is the only software required.
 
 Run `docker-compose -f docker-compose-vuln.yaml up` to launch the cFS binary and the COSMOS ground system.
 
