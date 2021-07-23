@@ -44,7 +44,10 @@ Run the following commands in a terminal to launch cFS and COSMOS.
 # Allow COSMOS to connect to MobaXterm
 set DISPLAY=<My XServer's IP Address ie 10.0.0.1:0.0>
 
-# Launch cFS and COSMOS docker containers
+# Launch cFS docker container
+docker run --volume=.\cfs_checksum_patched:/cfs --sysctl fs.mqueue.msg_max=3000 --network host -it ubuntu:16.04 bash -c "cd /cfs && ./core-cpu1"
+
+# Launch COSMOS docker container
 winpty docker run --net=host --rm -e DISPLAY -e QT_X11_NO_MITSHM=1 ballaerospace/cosmos
 ```
 
