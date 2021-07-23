@@ -14,9 +14,40 @@ We have provided two prebuilt binary files titled `core-cpu1` for a cFS build wi
 The challenge is configured to run within Docker using an Ubuntu 20.04 container to run the cFS binary (16.04 and 18.04 have also been verified to work) and a second container to run the COSMOS ground system.
 
 ## Setup
-There is no hardware necessary for this challenge and docker compose is the only software required.
+There is no hardware necessary for this challenge.
 
-Run `docker-compose -f docker-compose-vuln.yaml up` to launch the cFS binary and the COSMOS ground system.
+The best way to install and run COSMOS is through a docker container. The COSMOS docker container documentation can be found [here](https://github.com/BallAerospace/cosmos-docker). Unfortunately, COSMOS is very GUI based, so when launching in Docker you need to have an XServer on your local machine. If you're running linux, you probably already have an XServer installed. If you're running Windows, COSMOS recommends installing [MobaXterm](https://mobaxterm.mobatek.net)
+
+### Linux
+* Install docker compose
+* You will also need an XServer although one is probably already installed
+
+Run the following commands in a terminal to launch cFS and COSMOS.
+```bash
+# Enables the cosmos docker container to connect to the xserver and display the gui
+xhost +
+
+# Launch cFS and COSMOS docker containers
+docker-compose -f docker-compose-vuln.yaml up
+```
+
+### Windows
+* Install Docker Desktop
+* Install and Configure MobaXterm
+  - Launch MobaXTerm
+  - Select Settings -> Configuration, then X11, then set X11 remote access to: full. Click Ok.
+  - Click the large Session button, and then click Shell, and click Ok.
+  - Note the Line: Your DISPLAY is set to X.X.X.X:X:0. Make sure you have DISPLAY environment variable set in your host shell to this value.
+
+Run the following commands in a terminal to launch cFS and COSMOS.
+```bash
+# Allow COSMOS to connect to MobaXterm
+set DISPLAY=<My XServer's IP Address ie 10.0.0.1:0.0>
+
+# Launch cFS and COSMOS docker containers
+winpty docker run --net=host --rm -e DISPLAY -e QT_X11_NO_MITSHM=1 ballaerospace/cosmos
+```
+
 
 When the COSMOS launcher opens, press the COSMOS Demo icon in the top row. This will connect COSMOS with cFS and open display screens to view the status of the checksum app and cFS as a whole.
 
