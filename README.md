@@ -30,6 +30,7 @@ xhost +
 # Launch cFS and COSMOS docker containers
 docker-compose -f docker-compose-vuln.yaml up
 ```
+You can also just run the cFS executable locally by going into the `cfs_checksum_vuln/` directory and running `./core-cpu1`.
 
 ### Windows
 * Install Docker Desktop
