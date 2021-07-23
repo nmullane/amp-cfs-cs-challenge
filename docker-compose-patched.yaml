@@ -1,0 +1,25 @@
+version: '3'
+services:
+  cfs:
+    image: ubuntu:20.04
+    volumes:
+      - type: bind
+        source: ./cfs_checksum_patched
+        target: /cfs
+    network_mode: "host"
+    sysctls:
+      fs.mqueue.msg_max: 3000
+    command: bash -c "cd /cfs && ./core-cpu1"
+  cosmos-demo:
+    image: ballaerospace/cosmos
+    volumes:
+      - type: bind
+        source: ./cosmos-demo
+        target: /cosmos
+      - /tmp/.X11-unix:/tmp/.X11-unix:ro
+    network_mode: "host"
+    environment:
+      - DISPLAY=$DISPLAY
+      - QT_X11_NO_MITSHM=1
+    depends_on:
+      - "cfs"
