@@ -5,7 +5,7 @@ Patching a broken checksumming application running in [cFS](https://github.com/n
 This challenge is designed to replicate a scenario where the flight software on a spacecraft needs to be patched without replacing the entire binary executable. [cFS](https://github.com/nasa/cfs) is a flight software framework developed by Goddard Space Flight Center. cFS provides a common framework for flight software apps to run on. To interact with cFS we are using the [COSMOS](https://cosmosc2.com) ground system software which will enable you to view telemetry from cFS.
 
 ## Vulnerability
-For this challenge a specific cFS app, the checksum app, needs to be patched. The checksum app performs regular checksums of the cFS executable itself as well as memory and data on the system. In this scenario, the checksum for the Core Flight Executive (a component of cFS) is being checked incorrectly and increments an error counter displayed in the COSMOS ground system.
+For this challenge a specific cFS app, the checksum app ([CS](https://github.com/nasa/CS)), needs to be patched. The checksum app performs regular checksums of the cFS executable itself as well as memory and data on the system. In this scenario, the checksum for the Core Flight Executive (a component of cFS) is being checked incorrectly and increments an error counter displayed in the COSMOS ground system.
 
 ## Software
 We have provided two prebuilt binary files titled `core-cpu1` for a cFS build with a patched and vulnerable checksum app. These binaries are within the `cfs_checksum_patched/` and `cfs_checksum_vuln/` directories respectively. Both of these directories also contain the source cFS code used to generate the two binaries in the `cFS/` subdirectory if you intend to build from source.
@@ -87,3 +87,8 @@ The cFS apps define the behavior of the system. The apps are responsible for con
 The Checksum app is intended to perform periodic checks of the cFS executable itelf, the apps that are running, and memory to protect against bit flips due to radiation or other types of corruption. What's relevant to this challenge is the checksum app will compute a baseline checksum for the cFE core. Then the checksum app will periodically recalculate this baseline and compare it against itself to see if it has changed. If the calculated value is different, the checksum app will continue accumulating an error count until the calculated checksum becomes the same as the baseline again or a new baseline is forced to be recomputed.
 
 The vulnerable version of the checksum app calculates the baseline properly, but when it compares the calculated value against the baseline it adds 1 to the calculated checksum to make it unequal to the baseline and the app will throw an error.
+
+## Resources
+Here are a few resources that go into more detail about cFS.
+* [NASA cFS Training](https://ntrs.nasa.gov/citations/20205011588)
+* [NASA cFS Overview](https://cfs.gsfc.nasa.gov/cFS-OviewBGSlideDeck-ExportControl-Final.pdf)
