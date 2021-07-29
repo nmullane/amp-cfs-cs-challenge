@@ -1,3 +1,4 @@
+# cFS/apps/CS/fsw/src/cs_compute.c
 83,84c83
 <             // TODO: PURPOSEFULLY BROKEN CODE
 <             NewChecksumValue += 1; 
