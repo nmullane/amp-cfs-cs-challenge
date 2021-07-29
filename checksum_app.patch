@@ -1,25 +1,5 @@
-From b486a229f4402670afdaaf8e7d174c3dbabbea13 Mon Sep 17 00:00:00 2001
-From: Niall Mullane <niall.p.mullane@gmail.com>
-Date: Tue, 27 Jul 2021 10:41:30 -0400
-Subject: [PATCH] patch checksum app
-
+83,84c83
+<             // TODO: PURPOSEFULLY BROKEN CODE
+<             NewChecksumValue += 1; 
 ---
- apps/CS/fsw/src/cs_compute.c | 2 --
- 1 file changed, 2 deletions(-)
-
-diff --git a/apps/CS/fsw/src/cs_compute.c b/apps/CS/fsw/src/cs_compute.c
-index 509bace..27ae341 100644
---- a/apps/CS/fsw/src/cs_compute.c
-+++ b/apps/CS/fsw/src/cs_compute.c
-@@ -80,8 +80,6 @@ int32 CS_ComputeEepromMemory (CS_Res_EepromMemory_Table_Entry_t         * Result
-         {
-             /* This is NOT the first time through this Entry.  
-              We have already computed a CS value for this Entry */             
--            // TODO: PURPOSEFULLY BROKEN CODE
--            NewChecksumValue += 1; 
-             if (NewChecksumValue != ResultsEntry -> ComparisonValue)
-             {
-                 /* If the just-computed value differ from the saved value */                                
--- 
-2.25.1
-
+>             
