@@ -10,10 +10,9 @@ For this challenge a specific cFS app, the checksum app ([CS](https://github.com
 ## Software
 We have provided two prebuilt binary files titled `core-cpu1` for a cFS build with a patched and vulnerable checksum app. These binaries are within the `cfs_checksum_patched/` and `cfs_checksum_vuln/` directories respectively. Both of these directories also contain the source cFS code used to generate the two binaries in the `cFS/` subdirectory if you intend to build from source.
 
-You can build and run cFS from source by running the following commands in the `cfs_checksum_patched/` and `cfs_checksum_vuln/` directories.
+You can build and run cFS from source by running the following commands in the `cfs_checksum_patched/cFS/` and `cfs_checksum_vuln/cFS/` directories.
 ```bash
-git submodule init
-git submodule update
+git submodule update --init --recursive
 make
 make install
 cd build/exe/cpu1
