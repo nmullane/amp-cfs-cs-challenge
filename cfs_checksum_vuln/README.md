@@ -3,7 +3,7 @@ The executable relies on the objects and startup script contained in the `cf/` d
 
 You should be able to run the binary `core-cpu1` on native ubuntu linux. Tested on ubuntu 16.04, 18.04, and 20.04.
 
-You can also build from source by running the following commands in the `cFS` subdirectory.
+You can also build from source by running the following commands in the **`cFS`** subdirectory.
 
 ```bash
 make prep
